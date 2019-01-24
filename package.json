@@ -4,5 +4,12 @@
   "description": "Тестовое задание \"MotherFuckingWebSite\"",
   "repository": "https://github.com/newbornfrontender/test-task-motherfuckingwebsite.git",
   "author": "Infant Frontender <newbornfrontender@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "pretty": "prettier --write **/*.{html,css,js,json,yml,md}",
+    "clean": "rm -rf public/*.{css,js}",
+    "serve": "serve public",
+    "start": "chokidar src -c \"rollup -c\"",
+    "build": "yarn clean && rollup -c --environment NODE_ENV:production"
+  }
 }
