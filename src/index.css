@@ -1,0 +1,227 @@
+@font-face {
+  font-family: 'Jacques Francois';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Jacques Francois'), local('JacquesFrancois-Regular'),
+    url(https://fonts.gstatic.com/s/jacquesfrancois/v6/ZXu9e04ZvKeOOHIe1TMahbcIU2cgqcTgoA.woff2)
+      format('woff2');
+  font-display: swap;
+}
+
+@keyframes bubble {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: Jacques Francois, sans-serif;
+}
+
+.paper-bg {
+  background-color: #3a78a1;
+  background-image: linear-gradient(#7297af 1px, transparent 1px),
+    linear-gradient(90deg, #7297af 1px, transparent 1px),
+    linear-gradient(#3a78a1 1px, transparent 1px),
+    linear-gradient(90deg, #3a78a1 1px, transparent 1px),
+    linear-gradient(#4e86ab 1px, transparent 1px),
+    linear-gradient(90deg, #4e86ab 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 5px 5px, 5px 5px, 20px 20px, 20px 20px;
+  background-position: -1px -1px, -1px -1px, 0 0, 0 0, -1px -1px, -1px -1px;
+}
+
+.content {
+  margin: 0 auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title,
+.text,
+.list,
+.cite {
+  margin: 0;
+}
+
+.lead,
+.epilogue {
+  padding: 1.5rem;
+  text-align: center;
+  color: #fff;
+}
+
+.lead,
+.epilogue {
+  & .title {
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0), 4px 4px 0 rgba(0, 0, 0, 0.4);
+  }
+}
+
+.lead {
+  border-bottom: 2px solid #fff;
+
+  & .title {
+    margin-bottom: 1.1rem;
+    font-size: 2.3rem;
+  }
+
+  & .text {
+    font-size: 1.3rem;
+  }
+}
+
+.epilogue,
+.lead {
+  & .text {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.article,
+.subarticle {
+  box-sizing: border-box;
+  border: 1px dashed rgba(255, 255, 255, 0.4);
+  transition-duration: 0.7s;
+
+  &:hover {
+    border-radius: 1rem;
+    border-style: solid;
+    border-color: #ccc;
+  }
+}
+
+.article {
+  margin-bottom: 1.4rem;
+  padding: 1rem;
+  width: calc(100% - 0.7rem);
+  background-color: rgba(78, 134, 171, 0.7);
+  box-shadow: 0.7rem 0.7rem 0 rgba(50, 100, 133, 0.72);
+  transition-duration: 0.6s;
+
+  &:nth-of-type(even) {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0.7rem 0.7rem 0 rgba(50, 100, 133, 0.56);
+  }
+
+  &:nth-of-type(1n):hover {
+    margin-bottom: 1rem;
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: none;
+  }
+
+  & .title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+  }
+
+  & .text {
+    font-size: 1rem;
+  }
+}
+
+.visible {
+  will-change: opacity, scale;
+  animation: bubble 0.6s ease-out;
+}
+
+.list {
+  margin-top: 1rem;
+  padding: 0;
+  list-style-type: none;
+  color: #fff;
+  overflow: hidden;
+
+  & .item {
+    padding: 0.25rem;
+    font-style: italic;
+    border-bottom: 1px solid rgb(32, 32, 32);
+    opacity: 0;
+    transition-duration: 0.7s;
+    will-change: opacity, transform;
+    transform: translateX(-100%);
+  }
+
+  & .slide {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.subarticle {
+  margin-top: 1.4rem;
+  margin-left: 0.4rem;
+  padding: 0.5rem;
+  width: calc(100% - 0.4rem);
+  font-size: 1.2rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: -0.4rem -0.4rem 0 rgba(0, 0, 0, 0.2);
+  transition-duration: 0.5s;
+
+  &:hover {
+    margin-top: 1rem;
+    margin-left: 0;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  & .title {
+    margin-bottom: 0.5rem;
+  }
+
+  & .text {
+    font-size: 0.9rem;
+  }
+}
+
+.link {
+  color: #000;
+  border-bottom: 1px dashed #000;
+  text-decoration: none;
+
+  &:hover {
+    border-bottom-style: solid;
+  }
+}
+
+.cite {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  color: #fff;
+}
+
+.epilogue {
+  border-top: 2px solid #fff;
+
+  & .title {
+    margin-bottom: 1.1rem;
+    font-size: 1.9rem;
+  }
+
+  & .text {
+    font-size: 1.1rem;
+  }
+
+  & .link {
+    color: #fff;
+    border-bottom-color: #fff;
+  }
+}
+
+@custom-media --medium (width >= 50rem);
+
+@media (--medium) {
+  .content {
+    width: 48rem;
+  }
+}
