@@ -11,5 +11,8 @@
     "serve": "serve public",
     "start": "chokidar src -c \"rollup -c\"",
     "build": "yarn clean && rollup -c --environment NODE_ENV:production"
+  },
+  "dependencies": {
+    "intersection-observer": "^0.5.1"
   }
 }
