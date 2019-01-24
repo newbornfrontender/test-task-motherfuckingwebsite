@@ -1,0 +1,8 @@
+{
+  "name": "test-task-motherfuckingwebsite",
+  "version": "1.0.0",
+  "description": "Тестовое задание \"MotherFuckingWebSite\"",
+  "repository": "https://github.com/newbornfrontender/test-task-motherfuckingwebsite.git",
+  "author": "Infant Frontender <newbornfrontender@gmail.com>",
+  "license": "MIT"
+}
